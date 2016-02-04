@@ -35,7 +35,7 @@ module.exports= function quasilon(options){
 				var
 				  id= Number.parseInt(name.substring(prefix.length)),
 				  val= values[id]
-				if(val instanceof String){
+				if(typeof(val) === "string"){
 					path.replaceWithSourceString(val)
 				}else if(Array.isArray(val)){
 					path.replaceWithMultiple(val)
