@@ -35,15 +35,11 @@ module.exports= function quasilon(options){
 				var
 				  id= Number.parseInt(name.substring(prefix.length)),
 				  val= values[id]
-				console.log("ITER", id, val)
 				if(val instanceof String){
-					console.log("STR")
 					path.replaceWithSourceString(val)
 				}else if(Array.isArray(val)){
-					console.log("ARR")
 					path.replaceWithMultiple(val)
 				}else{
-					console.log("ELSE")
 					path.replaceWith(val)
 				}
 			}
