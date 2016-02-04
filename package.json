@@ -1,0 +1,32 @@
+{
+	"name": "quasilon",
+	"version": "1.0.0",
+	"description": "Quasilon is quasiquotes for JS, a tagged template string for turning JS code into Babel/Babylon AST.",
+	"tags": [
+		"metaprogramming",
+		"quasiquotes",
+		"ast",
+		"parse",
+		"js",
+		"tagged-template-string",
+		"babylon",
+		"babel",
+		"quasilon"
+	],
+	"main": "quasilon.js",
+	"dependencies": {
+		"babel-core": "^6.4.5",
+		"babel-traverse": "^6.4.5",
+		"babylon": "^6.4.5"
+	},
+	"devDependencies": {},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://archive.voodoowarez.com/quasilon"
+	},
+	"author": "rektide de la faye",
+	"license": "X"
+}
