@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 var quasilon= require("../..")()
 
 var getAnswer= quasilon`return "4"+2`

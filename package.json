@@ -1,6 +1,6 @@
 {
 	"name": "quasilon",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "Quasilon is quasiquotes for JS, a tagged template string for turning JS code into Babel/Babylon AST.",
 	"tags": [
 		"metaprogramming",

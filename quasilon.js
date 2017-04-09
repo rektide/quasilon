@@ -38,6 +38,7 @@ module.exports= function quasilon(options){
 				if(typeof(val) === "string"){
 					path.replaceWithSourceString(val)
 				}else if(Array.isArray(val)){
+					val= Array.prototype.concat.apply([], val)
 					path.replaceWithMultiple(val)
 				}else{
 					path.replaceWith(val)
