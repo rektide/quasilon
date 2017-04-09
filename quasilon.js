@@ -4,6 +4,16 @@ var babylon= require("babylon")
 
 var prefix= "_identMe"
 
+function parseArgNumber( str){
+	if(str && str.constructor!== String){
+		return
+	}
+	if(str.startsWith(prefix)){
+		var n= str.substring(prefix.length)
+		return Number.parseInt(n)
+	}
+}
+
 module.exports= function quasilon(options){
 	options= options|| {}
 	options.allowReturnOutsideFunction= true
@@ -26,15 +36,16 @@ module.exports= function quasilon(options){
 		  str= vals.join(""),
 		  ast= babylon.parse(str, options)
 		traverse(ast, {
+			Literal: function(path){
+				var n= parseArgNumber(path.node.value)
+				if(n === undefined) return
+				path.node.value= values[n]
+			},
 			Identifier: function(path){
-				var
-				  name= path.node.name
-				if(!name.startsWith(prefix)){
-					return
-				}
-				var
-				  id= Number.parseInt(name.substring(prefix.length)),
-				  val= values[id]
+				var n= parseArgNumber(path.node.name)
+				if(n === undefined) return
+
+				var val= values[n]
 				if(typeof(val) === "string"){
 					path.replaceWithSourceString(val)
 				}else if(Array.isArray(val)){
