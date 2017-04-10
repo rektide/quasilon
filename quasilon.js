@@ -8,7 +8,7 @@ function parseArgNumber( str){
 	if(str && str.constructor!== String){
 		return
 	}
-	if(str.startsWith(prefix)){
+	if(str&& str.startsWith(prefix)){
 		var n= str.substring(prefix.length)
 		return Number.parseInt(n)
 	}
@@ -50,7 +50,19 @@ module.exports= function quasilon(options){
 					path.replaceWithSourceString(val)
 				}else if(Array.isArray(val)){
 					val= Array.prototype.concat.apply([], val)
-					path.replaceWithMultiple(val)
+					if(path.parent.elements){
+						var n
+						for(var i in path.contexts[0].queue){
+							if(path.contexts[0].queue[i].node=== path.node){
+								n= i
+								break
+							}
+						}
+						val.unshift(n, 1)
+						path.parent.elements.splice.apply(path.parent.elements, val)
+					}else{
+						path.replaceWithMultiple(val)
+					}
 				}else{
 					path.replaceWith(val)
 				}
