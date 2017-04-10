@@ -29,7 +29,11 @@ module.exports= function quasilon(options){
 				vals.push(str)
 			}
 			if(val){
-				vals.push(prefix+ i)
+				if(val.constructor=== String){
+					vals.push(val)
+				}else{
+					vals.push(prefix+ i)
+				}
 			}
 		}
 		var
